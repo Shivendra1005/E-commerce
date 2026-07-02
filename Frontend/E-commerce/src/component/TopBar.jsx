@@ -34,10 +34,10 @@ const XIcon = () => (
 );
 
 const navLinks = [
-  { name: "Home",       path: "/" },
+  { name: "Home", path: "/" },
   { name: "Collection", path: "/collection" },
-  { name: "About",      path: "/about" },
-  { name: "Contact",    path: "/contact" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export function TopBar() {
@@ -75,7 +75,7 @@ export function TopBar() {
   };
 
   const goToAdmin = () => {
-    window.location.href = "https://e-comm-woad-zeta.vercel.app/";
+    window.location.href = "https://e-commerce-5p5f.vercel.app/admin";
   };
 
   const cartCount = getCartCount();
@@ -84,9 +84,8 @@ export function TopBar() {
     <>
       {/* ── MAIN NAV ───────────────────────────────── */}
       <header
-        className={`navbar-glass h-16 sticky top-0 z-50 transition-shadow duration-300 ${
-          scrolled ? "shadow-lg shadow-slate-200/60" : ""
-        }`}
+        className={`navbar-glass h-16 sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-slate-200/60" : ""
+          }`}
       >
         <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
 
@@ -99,16 +98,16 @@ export function TopBar() {
             {/* SVG Logo Mark */}
             <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shadow-md group-hover:bg-indigo-600 transition-colors duration-300">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M16 10a4 4 0 01-8 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                <path d="M16 10a4 4 0 01-8 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <span
               style={{ fontFamily: "'Playfair Display', serif" }}
               className="text-xl font-bold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors duration-300"
             >
-              E-Comm
+              NovaCart
             </span>
           </Link>
 
@@ -119,10 +118,9 @@ export function TopBar() {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                    isActive
-                      ? "text-indigo-600 bg-indigo-50"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                  `relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${isActive
+                    ? "text-indigo-600 bg-indigo-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`
                 }
               >
@@ -248,10 +246,9 @@ export function TopBar() {
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `px-4 py-3 text-base font-medium rounded-xl transition-colors ${
-                      isActive
-                        ? "text-indigo-600 bg-indigo-50"
-                        : "text-slate-700 hover:bg-slate-50"
+                    `px-4 py-3 text-base font-medium rounded-xl transition-colors ${isActive
+                      ? "text-indigo-600 bg-indigo-50"
+                      : "text-slate-700 hover:bg-slate-50"
                     }`
                   }
                 >

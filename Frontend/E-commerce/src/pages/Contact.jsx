@@ -1,23 +1,23 @@
 import Footer from "../component/Footer";
 import { TopBar } from "../component/TopBar";
-import {FaPhone,FaEnvelope,FaMapMarkerAlt,FaFacebook,FaTwitter,FaInstagram} from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export function Contact() {
   return (
     <div className="flex flex-col min-h-screen">
       <TopBar icon={"search_icon.png"} />
 
-<section
-  className="w-full h-64 md:h-80 flex items-center justify-center bg-cover bg-center relative"
-  style={{
-    backgroundImage: `url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80')`,
-  }}
->
-  <div className="absolute inset-0 bg-black/40"></div> 
-  <h1 className="relative text-4xl md:text-5xl font-bold text-white drop-shadow-lg text-center px-4">
-    Contact Us
-  </h1>
-</section>
+      <section
+        className="w-full h-64 md:h-80 flex items-center justify-center bg-cover bg-center relative"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+        <h1 className="relative text-4xl md:text-5xl font-bold text-white drop-shadow-lg text-center px-4">
+          Contact Us
+        </h1>
+      </section>
 
 
       <section className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -54,7 +54,7 @@ export function Contact() {
             <FaMapMarkerAlt className="text-blue-600 text-2xl" />
             <div>
               <h3 className="font-semibold text-lg">Address</h3>
-              <p>123 E-comm Street, Mumbai, India</p>
+              <p>123 NovaCart Street, Mumbai, India</p>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ export function Contact() {
       {/* Embedded Google Map (Mumbai) */}
       <section className="w-full h-64 md:h-96 mb-12">
         <iframe
-          title="E-comm Location"
+          title="NovaCart Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.116158225511!2d72.82581327493323!3d19.082197387065523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63f3ee9f22d%3A0x19c1c5c0c5fef9e3!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
           width="100%"
           height="100%"

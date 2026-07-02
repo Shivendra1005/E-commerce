@@ -45,17 +45,12 @@ const Footer = () => {
 
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M16 10a4 4 0 01-8 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <span style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-white">
-                NovaCart
-              </span>
+            <div className="mb-5">
+              <img
+                src="/logo.png"
+                alt="NovaCart"
+                className="h-14 w-auto object-contain"
+              />
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Delivering timeless apparel crafted to be part of your story. Each garment is

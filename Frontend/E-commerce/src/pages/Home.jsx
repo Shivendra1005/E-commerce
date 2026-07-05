@@ -7,7 +7,7 @@ import Policy from '../component/Policy';
 
 export function Home(){
     return <div>
-        <TopBar icon={"search_icon.png"}/>
+        <TopBar/>
         <Hero/>
         <LatestCollection/>
         <BestSeller/>

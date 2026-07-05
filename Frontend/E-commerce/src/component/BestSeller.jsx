@@ -15,13 +15,10 @@ export function BestSeller() {
   }, [products]);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section className="section-spacing px-6 lg:px-16 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-amber-500 text-sm font-semibold tracking-widest uppercase mb-3">
-            — Top Picks —
-          </p>
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="section-tag">Top Picks</span>
           <h2 className="section-title mb-4">Best Sellers</h2>
           <p className="section-subtitle">
             Our most-loved products, top-rated by customers for quality, style and value.
@@ -31,10 +28,10 @@ export function BestSeller() {
         {loading ? (
           <div className="flex flex-col items-center gap-4 py-20">
             <Spinner />
-            <p className="text-slate-400 text-sm">Loading products…</p>
+            <p className="text-[var(--text-muted)] text-sm">Loading products…</p>
           </div>
         ) : bestSeller.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 lg:gap-6">
             {bestSeller.map((item, index) => (
               <div
                 key={item._id}
@@ -51,7 +48,7 @@ export function BestSeller() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-slate-400 py-20">No best sellers yet.</p>
+          <p className="text-center text-[var(--text-muted)] py-20">No best sellers yet.</p>
         )}
       </div>
     </section>

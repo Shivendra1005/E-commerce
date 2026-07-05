@@ -92,21 +92,18 @@ export const PlaceOrder = () => {
     <div className="min-h-screen flex flex-col">
       <TopBar />
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-16 py-12 lg:py-16">
         <form onSubmit={onSubmitHandler}>
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
 
-            {/* ── LEFT: DELIVERY FORM ── */}
+            {/* LEFT: Delivery Form */}
             <div className="flex-1">
               <Title text1="DELIVERY" text2="INFORMATION" />
 
-              <div className="space-y-4">
-                {/* Name Row */}
+              <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-color)] p-6 lg:p-8 shadow-[var(--shadow-sm)] space-y-5">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      First Name *
-                    </label>
+                    <label className="input-label">First Name *</label>
                     <input
                       required
                       onChange={onChangeHandler}
@@ -118,9 +115,7 @@ export const PlaceOrder = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      Last Name *
-                    </label>
+                    <label className="input-label">Last Name *</label>
                     <input
                       required
                       onChange={onChangeHandler}
@@ -133,11 +128,8 @@ export const PlaceOrder = () => {
                   </div>
                 </div>
 
-                {/* Email */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                    Email Address *
-                  </label>
+                  <label className="input-label">Email Address *</label>
                   <input
                     required
                     onChange={onChangeHandler}
@@ -149,11 +141,8 @@ export const PlaceOrder = () => {
                   />
                 </div>
 
-                {/* Street */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                    Street Address *
-                  </label>
+                  <label className="input-label">Street Address *</label>
                   <input
                     required
                     onChange={onChangeHandler}
@@ -165,12 +154,9 @@ export const PlaceOrder = () => {
                   />
                 </div>
 
-                {/* City / State */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      City *
-                    </label>
+                    <label className="input-label">City *</label>
                     <input
                       required
                       onChange={onChangeHandler}
@@ -182,9 +168,7 @@ export const PlaceOrder = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      State
-                    </label>
+                    <label className="input-label">State</label>
                     <input
                       onChange={onChangeHandler}
                       name="state"
@@ -196,12 +180,9 @@ export const PlaceOrder = () => {
                   </div>
                 </div>
 
-                {/* Zipcode / Country */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      Zipcode *
-                    </label>
+                    <label className="input-label">Zipcode *</label>
                     <input
                       required
                       onChange={onChangeHandler}
@@ -213,9 +194,7 @@ export const PlaceOrder = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                      Country *
-                    </label>
+                    <label className="input-label">Country *</label>
                     <input
                       required
                       onChange={onChangeHandler}
@@ -228,11 +207,8 @@ export const PlaceOrder = () => {
                   </div>
                 </div>
 
-                {/* Phone */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                    Phone Number *
-                  </label>
+                  <label className="input-label">Phone Number *</label>
                   <input
                     required
                     onChange={onChangeHandler}
@@ -246,56 +222,57 @@ export const PlaceOrder = () => {
               </div>
             </div>
 
-            {/* ── RIGHT: ORDER SUMMARY ── */}
-            <div className="lg:w-96 space-y-6">
-              <CartTotal />
+            {/* RIGHT: Order Summary */}
+            <div className="lg:w-96 xl:w-[400px] space-y-6">
+              <div className="lg:sticky lg:top-24 space-y-6">
+                <CartTotal />
 
-              {/* Payment Method */}
-              <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-                <Title text1="PAYMENT" text2="METHOD" />
-                <div className="space-y-3">
-                  <label className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${method === "cod" ? "border-indigo-500 bg-indigo-50" : "border-slate-200 hover:border-slate-300"}`}>
-                    <input
-                      type="radio"
-                      name="payment"
-                      checked={method === "cod"}
-                      onChange={() => setMethod("cod")}
-                      className="sr-only"
-                    />
-                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${method === "cod" ? "border-indigo-500 bg-indigo-500" : "border-slate-300"}`}>
-                      {method === "cod" && <span className="w-2 h-2 rounded-full bg-white" />}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+                {/* Payment Method */}
+                <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-color)] p-6 shadow-[var(--shadow-sm)]">
+                  <Title text1="PAYMENT" text2="METHOD" />
+                  <div className="space-y-3 mt-4">
+                    <label className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${method === "cod" ? "border-[var(--accent-primary)] bg-[var(--accent-light)]" : "border-[var(--border-color)] hover:border-[var(--text-muted)]"}`}>
+                      <input
+                        type="radio"
+                        name="payment"
+                        checked={method === "cod"}
+                        onChange={() => setMethod("cod")}
+                        className="sr-only"
+                      />
+                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${method === "cod" ? "border-[var(--accent-primary)] bg-[var(--accent-primary)]" : "border-[var(--border-color)]"}`}>
+                        {method === "cod" && <span className="w-2 h-2 rounded-full bg-white" />}
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-slate-800">Cash on Delivery</p>
-                        <p className="text-xs text-slate-400">Pay when your order arrives</p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-[var(--text-primary)]">Cash on Delivery</p>
+                          <p className="text-xs text-[var(--text-secondary)]">Pay when your order arrives</p>
+                        </div>
                       </div>
-                    </div>
-                  </label>
+                    </label>
+                  </div>
                 </div>
+
+                {/* Place Order Button */}
+                <button
+                  type="submit"
+                  className="btn-primary w-full text-base py-4 rounded-xl shadow-lg shadow-[var(--accent-primary)]/20"
+                >
+                  <CheckIcon />
+                  Place Order
+                </button>
+
+                <p className="text-center text-xs text-[var(--text-muted)] flex items-center justify-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  Secure Checkout · 100% Safe & Encrypted
+                </p>
               </div>
-
-              {/* Place Order Button */}
-              <button
-                type="submit"
-                className="btn-primary w-full text-base py-4 rounded-2xl"
-              >
-                <CheckIcon />
-                Place Order
-              </button>
-
-              {/* Trust note */}
-              <p className="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Secure Checkout · 100% Safe & Encrypted
-              </p>
             </div>
           </div>
         </form>

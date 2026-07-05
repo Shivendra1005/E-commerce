@@ -38,18 +38,18 @@ export function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* ── LEFT PANEL (decorative) ── */}
+    <div className="min-h-screen flex bg-[var(--bg-primary)]">
+      {/* LEFT PANEL */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80"
           alt="Fashion"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/80 via-slate-900/60 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-primary)]/80 via-slate-900/60 to-black/50" />
         <div className="relative z-10 flex flex-col justify-between p-12 h-full">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
               <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round" />
@@ -69,106 +69,96 @@ export function SignIn() {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL (form) ── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-white">
+      {/* RIGHT PANEL */}
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-[var(--bg-primary)]">
         <div className="w-full max-w-md animate-fadeIn">
-
-          {/* Mobile logo */}
           <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
-            <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-[var(--text-primary)] flex items-center justify-center">
               <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round" />
                 <path d="M16 10a4 4 0 01-8 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <span style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-slate-900">
+            <span style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-[var(--text-primary)]">
               NovaCart
             </span>
           </Link>
 
-          <h1 className="text-3xl font-bold text-slate-900 mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Welcome back
-          </h1>
-          <p className="text-slate-400 text-sm mb-8">Sign in to continue shopping</p>
+          <div className="bg-[var(--bg-primary)] rounded-3xl p-8 lg:p-10 shadow-[var(--shadow-md)] border border-[var(--border-color)]">
+            <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-1">Welcome back</h1>
+            <p className="text-[var(--text-secondary)] text-sm mb-8">Sign in to continue shopping</p>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                className="input-field"
-                placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            {/* Password */}
-            <div>
-              <label htmlFor="password" className="block text-xs font-semibold text-slate-600 mb-1.5 uppercase tracking-wide">
-                Password
-              </label>
-              <div className="relative">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="input-label">Email Address</label>
                 <input
-                  id="password"
-                  type={showPass ? "text" : "password"}
-                  className="input-field pr-11"
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  id="email"
+                  type="email"
+                  className="input-field"
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowPass((p) => !p)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
-                  aria-label={showPass ? "Hide password" : "Show password"}
-                >
-                  {showPass ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  )}
-                </button>
               </div>
-            </div>
 
-            {/* Remember me */}
-            <div className="flex items-center justify-between">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" id="remember" className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
-                <span className="text-sm text-slate-500">Remember me</span>
-              </label>
-              <a href="#" className="text-sm text-indigo-600 hover:underline">Forgot password?</a>
-            </div>
+              <div>
+                <label className="input-label">Password</label>
+                <div className="relative">
+                  <input
+                    id="password"
+                    type={showPass ? "text" : "password"}
+                    className="input-field pr-11"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPass((p) => !p)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                    aria-label={showPass ? "Hide password" : "Show password"}
+                  >
+                    {showPass ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+              </div>
 
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={submitting}
-              className="btn-primary w-full text-base py-3.5 rounded-xl disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {submitting ? "Signing in…" : "Sign In"}
-            </button>
+              <div className="flex items-center justify-between">
+                <label className="flex items-center gap-2 cursor-pointer group">
+                  <input type="checkbox" id="remember" className="input-checkbox" />
+                  <span className="text-sm text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">Remember me</span>
+                </label>
+                <a href="#" className="text-sm text-[var(--accent-primary)] hover:underline font-medium">Forgot password?</a>
+              </div>
 
-            <p className="text-center text-sm text-slate-500">
-              Don't have an account?{" "}
-              <Link to="/signup" className="text-indigo-600 font-semibold hover:underline">
-                Create account
-              </Link>
-            </p>
-          </form>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn-primary w-full text-base py-3.5 rounded-xl disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-[var(--accent-primary)]/20"
+              >
+                {submitting ? "Signing in…" : "Sign In"}
+              </button>
+
+              <p className="text-center text-sm text-[var(--text-secondary)]">
+                Don't have an account?{" "}
+                <Link to="/signup" className="text-[var(--accent-primary)] font-semibold hover:underline">
+                  Create account
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>

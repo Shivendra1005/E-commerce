@@ -39,31 +39,30 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 mt-0">
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-12">
+    <footer className="bg-[var(--text-primary)] text-slate-300">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 pt-16 lg:pt-20 pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-12 mb-12">
 
           {/* Brand Column */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <div className="mb-5">
               <img
                 src="/logo.png"
                 alt="NovaCart"
-                className="h-14 w-auto object-contain"
+                className="h-14 w-auto object-contain brightness-0 invert"
               />
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Delivering timeless apparel crafted to be part of your story. Each garment is
               designed with care, ensuring it stands the test of time.
             </p>
-            {/* Social Links */}
             <div className="flex items-center gap-3 mt-6">
               {socialLinks.map((s) => (
                 <a
                   key={s.name}
                   href={s.href}
                   aria-label={s.name}
-                  className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all duration-200"
+                  className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[var(--accent-primary)] hover:text-white transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -80,8 +79,7 @@ const Footer = () => {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `text-sm transition-colors duration-200 ${isActive ? "text-indigo-400" : "text-slate-400 hover:text-white"
-                      }`
+                      `text-sm transition-colors duration-200 ${isActive ? "text-[var(--accent-primary)]" : "text-slate-400 hover:text-white"}`
                     }
                   >
                     {item.name}
@@ -130,14 +128,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
           <p>© 2025 NovaCart. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <span>·</span>
+            <span className="text-slate-700">·</span>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <span>·</span>
+            <span className="text-slate-700">·</span>
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
         </div>
